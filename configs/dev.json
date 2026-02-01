@@ -1,0 +1,35 @@
+{
+  "name": "Developer",
+  "description": "Full development environment",
+  "packageGroups": {
+    "Development": [
+      { "Name": "Git", "Id": "Git.Git", "Selected": true },
+      { "Name": "GitHub CLI", "Id": "GitHub.cli", "Selected": true },
+      { "Name": "VS Code", "Id": "Microsoft.VisualStudioCode", "Selected": true },
+      { "Name": "Bun", "Id": "Oven-sh.Bun", "Selected": true },
+      { "Name": "Docker Desktop", "Id": "Docker.DockerDesktop", "Selected": true },
+      { "Name": "Windows Terminal", "Id": "Microsoft.WindowsTerminal", "Selected": true }
+    ],
+    "Rust": [
+      { "Name": "Rust (rustup)", "Id": "Rustlang.Rustup", "Selected": false },
+      { "Name": "LLVM", "Id": "LLVM.LLVM", "Selected": false }
+    ],
+    "AI Tools": [
+      { "Name": "Claude Desktop", "Id": "Anthropic.Claude", "Selected": true },
+      { "Name": "LM Studio", "Id": "LMStudio.LMStudio", "Selected": true },
+      { "Name": "Ollama", "Id": "Ollama.Ollama", "Selected": false }
+    ],
+    "Utilities": [
+      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
+      { "Name": "Bitwarden", "Id": "Bitwarden.Bitwarden", "Selected": true }
+    ],
+    "Browsers": [
+      { "Name": "Brave", "Id": "Brave.Brave", "Selected": true },
+      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": false }
+    ],
+    "Communication": [
+      { "Name": "Discord", "Id": "Discord.Discord", "Selected": true },
+      { "Name": "Slack", "Id": "SlackTechnologies.Slack", "Selected": false }
+    ]
+  }
+}

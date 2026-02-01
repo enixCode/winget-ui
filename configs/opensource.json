@@ -1,0 +1,51 @@
+{
+  "name": "Open Source",
+  "description": "Free and open source software",
+  "packageGroups": {
+    "Office & Documents": [
+      { "Name": "LibreOffice", "Id": "TheDocumentFoundation.LibreOffice", "Selected": true },
+      { "Name": "Scribus", "Id": "Scribus.Scribus", "Selected": false },
+      { "Name": "Calibre", "Id": "calibre.calibre", "Selected": false }
+    ],
+    "Graphics & Design": [
+      { "Name": "GIMP", "Id": "GIMP.GIMP", "Selected": true },
+      { "Name": "Inkscape", "Id": "Inkscape.Inkscape", "Selected": true },
+      { "Name": "Krita", "Id": "KDE.Krita", "Selected": false },
+      { "Name": "Blender", "Id": "BlenderFoundation.Blender", "Selected": true }
+    ],
+    "Video & Audio": [
+      { "Name": "VLC", "Id": "VideoLAN.VLC", "Selected": true },
+      { "Name": "Audacity", "Id": "Audacity.Audacity", "Selected": true },
+      { "Name": "OBS Studio", "Id": "OBSProject.OBSStudio", "Selected": true },
+      { "Name": "Kdenlive", "Id": "KDE.Kdenlive", "Selected": false },
+      { "Name": "HandBrake", "Id": "HandBrake.HandBrake", "Selected": true }
+    ],
+    "Browsers": [
+      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": true },
+      { "Name": "Tor Browser", "Id": "TorProject.TorBrowser", "Selected": false },
+      { "Name": "Brave", "Id": "Brave.Brave", "Selected": false }
+    ],
+    "Development": [
+      { "Name": "VS Code", "Id": "Microsoft.VisualStudioCode", "Selected": true },
+      { "Name": "Git", "Id": "Git.Git", "Selected": true },
+      { "Name": "Python", "Id": "Python.Python.3.12", "Selected": false },
+      { "Name": "Node.js", "Id": "OpenJS.NodeJS.LTS", "Selected": false }
+    ],
+    "Security & Privacy": [
+      { "Name": "Bitwarden", "Id": "Bitwarden.Bitwarden", "Selected": true },
+      { "Name": "KeePassXC", "Id": "KeePassXCTeam.KeePassXC", "Selected": false },
+      { "Name": "VeraCrypt", "Id": "IDRIX.VeraCrypt", "Selected": false }
+    ],
+    "Communication": [
+      { "Name": "Thunderbird", "Id": "Mozilla.Thunderbird", "Selected": true },
+      { "Name": "Signal", "Id": "OpenWhisperSystems.Signal", "Selected": true },
+      { "Name": "Element", "Id": "Element.Element", "Selected": false }
+    ],
+    "Utilities": [
+      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
+      { "Name": "Notepad++", "Id": "Notepad++.Notepad++", "Selected": true },
+      { "Name": "ShareX", "Id": "ShareX.ShareX", "Selected": true },
+      { "Name": "PowerToys", "Id": "Microsoft.PowerToys", "Selected": true }
+    ]
+  }
+}

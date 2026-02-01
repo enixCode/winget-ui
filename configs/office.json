@@ -1,0 +1,42 @@
+{
+  "name": "Office",
+  "description": "Standard office workstation",
+  "packageGroups": {
+    "Office Suite": [
+      { "Name": "LibreOffice", "Id": "TheDocumentFoundation.LibreOffice", "Selected": true },
+      { "Name": "Microsoft 365 Apps", "Id": "Microsoft.Office", "Selected": false }
+    ],
+    "Browsers": [
+      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": true },
+      { "Name": "Brave", "Id": "Brave.Brave", "Selected": true },
+      { "Name": "Google Chrome", "Id": "Google.Chrome", "Selected": false }
+    ],
+    "Communication": [
+      { "Name": "Thunderbird", "Id": "Mozilla.Thunderbird", "Selected": true },
+      { "Name": "Signal", "Id": "OpenWhisperSystems.Signal", "Selected": true },
+      { "Name": "Zoom", "Id": "Zoom.Zoom", "Selected": false },
+      { "Name": "Slack", "Id": "SlackTechnologies.Slack", "Selected": false }
+    ],
+    "PDF & Documents": [
+      { "Name": "Sumatra PDF", "Id": "SumatraPDF.SumatraPDF", "Selected": true },
+      { "Name": "Adobe Acrobat Reader", "Id": "Adobe.Acrobat.Reader.64-bit", "Selected": false }
+    ],
+    "Notes": [
+      { "Name": "Obsidian", "Id": "Obsidian.Obsidian", "Selected": true },
+      { "Name": "Joplin", "Id": "Joplin.Joplin", "Selected": false },
+      { "Name": "Notion", "Id": "Notion.Notion", "Selected": false }
+    ],
+    "Cloud Storage": [
+      { "Name": "Nextcloud Desktop", "Id": "Nextcloud.NextcloudDesktop", "Selected": true },
+      { "Name": "Google Drive", "Id": "Google.GoogleDrive", "Selected": false },
+      { "Name": "Dropbox", "Id": "Dropbox.Dropbox", "Selected": false }
+    ],
+    "Utilities": [
+      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
+      { "Name": "Bitwarden", "Id": "Bitwarden.Bitwarden", "Selected": true },
+      { "Name": "Notepad++", "Id": "Notepad++.Notepad++", "Selected": true },
+      { "Name": "PowerToys", "Id": "Microsoft.PowerToys", "Selected": true },
+      { "Name": "VLC", "Id": "VideoLAN.VLC", "Selected": true }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+# Claude Code settings
+.claude/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*~
