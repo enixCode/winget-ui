@@ -23,6 +23,10 @@ A simple PowerShell-based TUI (Terminal User Interface) for batch installing Win
 .\work.ps1 --config office.json
 ```
 
+![Profile Selection](select-profile.png)
+
+![Package Selection](image.png)
+
 ### Controls
 
 **Profile Selection:**
