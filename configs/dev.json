@@ -3,33 +3,42 @@
   "description": "Full development environment",
   "packageGroups": {
     "Development": [
-      { "Name": "Git", "Id": "Git.Git", "Selected": true },
-      { "Name": "GitHub CLI", "Id": "GitHub.cli", "Selected": true },
-      { "Name": "VS Code", "Id": "Microsoft.VisualStudioCode", "Selected": true },
-      { "Name": "Bun", "Id": "Oven-sh.Bun", "Selected": true },
-      { "Name": "Docker Desktop", "Id": "Docker.DockerDesktop", "Selected": true },
-      { "Name": "Windows Terminal", "Id": "Microsoft.WindowsTerminal", "Selected": true }
+      { "name": "Git", "id": "Git.Git", "selected": true },
+      { "name": "GitHub CLI", "id": "GitHub.cli", "selected": true },
+      { "name": "VS Code", "id": "Microsoft.VisualStudioCode", "selected": true },
+      { "name": "Bun", "id": "Oven-sh.Bun", "selected": true },
+      { "name": "Docker Desktop", "id": "Docker.DockerDesktop", "selected": true },
+      { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "selected": true }
     ],
     "Rust": [
-      { "Name": "Rust (rustup)", "Id": "Rustlang.Rustup", "Selected": false },
-      { "Name": "LLVM", "Id": "LLVM.LLVM", "Selected": false }
+      { "name": "Rust (rustup)", "id": "Rustlang.Rustup", "selected": false },
+      { "name": "LLVM", "id": "LLVM.LLVM", "selected": false }
     ],
     "AI Tools": [
-      { "Name": "Claude Desktop", "Id": "Anthropic.Claude", "Selected": true },
-      { "Name": "LM Studio", "Id": "LMStudio.LMStudio", "Selected": true },
-      { "Name": "Ollama", "Id": "Ollama.Ollama", "Selected": false }
+      { "name": "Claude Desktop", "id": "Anthropic.Claude", "selected": true },
+      { "name": "LM Studio", "id": "LMStudio.LMStudio", "selected": true },
+      { "name": "Ollama", "id": "Ollama.Ollama", "selected": false }
     ],
     "Utilities": [
-      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
-      { "Name": "Bitwarden", "Id": "Bitwarden.Bitwarden", "Selected": true }
+      { "name": "7-Zip", "id": "7zip.7zip", "selected": true },
+      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "selected": true }
     ],
     "Browsers": [
-      { "Name": "Brave", "Id": "Brave.Brave", "Selected": true },
-      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": false }
+      { "name": "Brave", "id": "Brave.Brave", "selected": true },
+      { "name": "Firefox", "id": "Mozilla.Firefox", "selected": false }
     ],
     "Communication": [
-      { "Name": "Discord", "Id": "Discord.Discord", "Selected": true },
-      { "Name": "Slack", "Id": "SlackTechnologies.Slack", "Selected": false }
+      { "name": "Discord", "id": "Discord.Discord", "selected": true },
+      { "name": "Slack", "id": "SlackTechnologies.Slack", "selected": false }
+    ]
+  },
+  "commands": {
+    "npm Global Tools": [
+      { "name": "pnpm", "command": "npm install -g pnpm", "selected": false },
+      { "name": "TypeScript", "command": "npm install -g typescript", "selected": false }
+    ],
+    "Python Tools": [
+      { "name": "Poetry", "command": "pip install poetry", "selected": false }
     ]
   }
 }

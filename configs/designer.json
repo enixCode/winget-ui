@@ -3,45 +3,45 @@
   "description": "Creative and design tools",
   "packageGroups": {
     "Design & UI": [
-      { "Name": "Figma", "Id": "Figma.Figma", "Selected": true },
-      { "Name": "Adobe Creative Cloud", "Id": "Adobe.CreativeCloud", "Selected": true },
-      { "Name": "Canva", "Id": "Canva.Canva", "Selected": false }
+      { "name": "Figma", "id": "Figma.Figma", "selected": true },
+      { "name": "Adobe Creative Cloud", "id": "Adobe.CreativeCloud", "selected": true },
+      { "name": "Canva", "id": "Canva.Canva", "selected": false }
     ],
     "Image Editing": [
-      { "Name": "GIMP", "Id": "GIMP.GIMP", "Selected": false },
-      { "Name": "Inkscape", "Id": "Inkscape.Inkscape", "Selected": false },
-      { "Name": "Paint.NET", "Id": "dotPDN.PaintDotNet", "Selected": true }
+      { "name": "GIMP", "id": "GIMP.GIMP", "selected": false },
+      { "name": "Inkscape", "id": "Inkscape.Inkscape", "selected": false },
+      { "name": "Paint.NET", "id": "dotPDN.PaintDotNet", "selected": true }
     ],
     "3D & Motion": [
-      { "Name": "Blender", "Id": "BlenderFoundation.Blender", "Selected": true },
-      { "Name": "DaVinci Resolve", "Id": "Blackmagic.DaVinciResolve", "Selected": true }
+      { "name": "Blender", "id": "BlenderFoundation.Blender", "selected": true },
+      { "name": "DaVinci Resolve", "id": "Blackmagic.DaVinciResolve", "selected": true }
     ],
     "Video & Streaming": [
-      { "Name": "OBS Studio", "Id": "OBSProject.OBSStudio", "Selected": true },
-      { "Name": "HandBrake", "Id": "HandBrake.HandBrake", "Selected": true },
-      { "Name": "VLC", "Id": "VideoLAN.VLC", "Selected": true }
+      { "name": "OBS Studio", "id": "OBSProject.OBSStudio", "selected": true },
+      { "name": "HandBrake", "id": "HandBrake.HandBrake", "selected": true },
+      { "name": "VLC", "id": "VideoLAN.VLC", "selected": true }
     ],
     "Fonts & Assets": [
-      { "Name": "FontBase", "Id": "FontBase.FontBase", "Selected": true }
+      { "name": "FontBase", "id": "FontBase.FontBase", "selected": true }
     ],
     "Browsers": [
-      { "Name": "Brave", "Id": "Brave.Brave", "Selected": true },
-      { "Name": "Arc", "Id": "TheBrowserCompany.Arc", "Selected": true },
-      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": false }
+      { "name": "Brave", "id": "Brave.Brave", "selected": true },
+      { "name": "Arc", "id": "TheBrowserCompany.Arc", "selected": true },
+      { "name": "Firefox", "id": "Mozilla.Firefox", "selected": false }
     ],
     "Notes & Inspiration": [
-      { "Name": "Obsidian", "Id": "Obsidian.Obsidian", "Selected": true },
-      { "Name": "Notion", "Id": "Notion.Notion", "Selected": false },
-      { "Name": "Eagle", "Id": "eagle.eagle", "Selected": false }
+      { "name": "Obsidian", "id": "Obsidian.Obsidian", "selected": true },
+      { "name": "Notion", "id": "Notion.Notion", "selected": false },
+      { "name": "Eagle", "id": "eagle.eagle", "selected": false }
     ],
     "Utilities": [
-      { "Name": "PowerToys", "Id": "Microsoft.PowerToys", "Selected": true },
-      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
-      { "Name": "ShareX", "Id": "ShareX.ShareX", "Selected": true }
+      { "name": "PowerToys", "id": "Microsoft.PowerToys", "selected": true },
+      { "name": "7-Zip", "id": "7zip.7zip", "selected": true },
+      { "name": "ShareX", "id": "ShareX.ShareX", "selected": true }
     ],
     "Communication": [
-      { "Name": "Discord", "Id": "Discord.Discord", "Selected": true },
-      { "Name": "Slack", "Id": "SlackTechnologies.Slack", "Selected": false }
+      { "name": "Discord", "id": "Discord.Discord", "selected": true },
+      { "name": "Slack", "id": "SlackTechnologies.Slack", "selected": false }
     ]
   }
 }

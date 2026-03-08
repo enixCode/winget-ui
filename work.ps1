@@ -8,31 +8,31 @@ for ($i = 0; $i -lt $args.Count; $i++) {
         $config = $args[$i + 1]
     }
 }
-$Dir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$dir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Handle --config parameter or show profile selection
 if ($config) {
     # Check configs/ folder first, then script directory
-    $configPath = "$Dir\configs\$config"
-    if (-not (Test-Path $configPath)) {
-        $configPath = "$Dir\$config"
+    $config_path = "$dir\configs\$config"
+    if (-not (Test-Path $config_path)) {
+        $config_path = "$dir\$config"
     }
-    if (-not (Test-Path $configPath)) {
+    if (-not (Test-Path $config_path)) {
         Write-Host "`n  ERROR: Config file not found: $config" -ForegroundColor Red
         Write-Host "  Available configs:" -ForegroundColor Yellow
-        Get-ChildItem "$Dir\configs" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "    - $($_.Name)" -ForegroundColor Gray }
-        Get-ChildItem "$Dir" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "    - $($_.Name)" -ForegroundColor Gray }
+        Get-ChildItem "$dir\configs" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "    - $($_.Name)" -ForegroundColor Gray }
+        Get-ChildItem "$dir" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "    - $($_.Name)" -ForegroundColor Gray }
         exit 1
     }
-    $profileConfig = Get-Content $configPath -Raw | ConvertFrom-Json
+    $profile_config = Get-Content $config_path -Raw | ConvertFrom-Json
 } else {
     # Get profiles from configs/ folder and script directory
     $profiles = @()
-    Get-ChildItem "$Dir\configs" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object {
+    Get-ChildItem "$dir\configs" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object {
         $c = Get-Content $_.FullName -Raw | ConvertFrom-Json
         $profiles += @{ File = $_.FullName; Name = $c.name }
     }
-    Get-ChildItem "$Dir" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object {
+    Get-ChildItem "$dir" -Filter "*.json" -ErrorAction SilentlyContinue | ForEach-Object {
         $c = Get-Content $_.FullName -Raw | ConvertFrom-Json
         if ($c.packageGroups) { $profiles += @{ File = $_.FullName; Name = $c.name } }
     }
@@ -57,103 +57,94 @@ if ($config) {
         if ($Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode -eq 13) { break }
     }
 
-    $profileConfig = Get-Content $profiles[$sel].File -Raw | ConvertFrom-Json
+    $profile_config = Get-Content $profiles[$sel].File -Raw | ConvertFrom-Json
 }
-$packages = @()
-foreach ($group in $profileConfig.packageGroups.PSObject.Properties) {
+$items = @()
+foreach ($group in $profile_config.packageGroups.PSObject.Properties) {
     foreach ($pkg in $group.Value) {
-        $packages += @{ Name = $pkg.Name; Id = $pkg.Id; Group = $group.Name; Selected = $false }
+        $items += @{ Name = $pkg.name; Id = $pkg.id; Group = $group.Name; Selected = [bool]$pkg.selected; Type = "winget" }
+    }
+}
+if ($profile_config.commands) {
+    foreach ($group in $profile_config.commands.PSObject.Properties) {
+        foreach ($cmd in $group.Value) {
+            $items += @{ Name = $cmd.name; Command = $cmd.command; Group = $group.Name; Selected = [bool]$cmd.selected; Type = "command" }
+        }
     }
 }
 
-# Check installed
+# Check installed (winget packages only)
 Write-Host "`n  Scanning installed..." -ForegroundColor Yellow
 $installed = winget list 2>$null | Out-String
-foreach ($pkg in $packages) {
-    $pkg.Installed = $installed -match [regex]::Escape($pkg.Id)
+foreach ($item in $items | Where-Object { $_.Type -eq "winget" }) {
+    $item.Installed = $installed -match [regex]::Escape($item.Id)
 }
 
 # Main loop
 $sel = 0
 while ($true) {
     Clear-Host
-    $selCount = ($packages | Where-Object { $_.Selected -and -not $_.Installed }).Count
+    $sel_count = ($items | Where-Object { $_.Selected -and -not $_.Installed }).Count
 
-    Write-Host "`n  $($profileConfig.name) - $selCount selected`n" -ForegroundColor Yellow
+    Write-Host "`n  $($profile_config.name) - $sel_count selected`n" -ForegroundColor Yellow
 
-    $lastGroup = ""
-    for ($i = 0; $i -lt $packages.Count; $i++) {
-        $p = $packages[$i]
-        if ($p.Group -ne $lastGroup) {
+    $last_group = ""
+    for ($i = 0; $i -lt $items.Count; $i++) {
+        $p = $items[$i]
+        if ($p.Group -ne $last_group) {
             Write-Host "  --- $($p.Group) ---" -ForegroundColor Cyan
-            $lastGroup = $p.Group
+            $last_group = $p.Group
         }
 
         $cur = if ($i -eq $sel) { ">" } else { " " }
         if ($p.Installed) {
             $box = "[+]"; $color = "DarkGray"; $status = "(installed)"
         } elseif ($p.Selected) {
-            $box = "[x]"; $color = "Green"; $status = ""
+            $box = if ($p.Type -eq "command") { "{x}" } else { "[x]" }
+            $color = "Green"; $status = ""
         } else {
-            $box = "[ ]"; $color = "White"; $status = ""
+            $box = if ($p.Type -eq "command") { "{ }" } else { "[ ]" }
+            $color = "White"; $status = ""
         }
         Write-Host "  $cur $box $($p.Name) $status" -ForegroundColor $color
     }
 
-    Write-Host "`n  [SPACE] Toggle  [A] All  [N] None  [ENTER] Install  [Q] Quit" -ForegroundColor DarkGray
+    Write-Host "`n  [SPACE] Toggle  [A] All  [N] None  [ENTER] Launch  [Q] Quit" -ForegroundColor DarkGray
 
     switch ($Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode) {
         38 { $sel = [Math]::Max(0, $sel - 1) }
-        40 { $sel = [Math]::Min($packages.Count - 1, $sel + 1) }
-        32 { if (-not $packages[$sel].Installed) { $packages[$sel].Selected = -not $packages[$sel].Selected } }
-        65 { $packages | Where-Object { -not $_.Installed } | ForEach-Object { $_.Selected = $true } }
-        78 { $packages | ForEach-Object { $_.Selected = $false } }
+        40 { $sel = [Math]::Min($items.Count - 1, $sel + 1) }
+        32 { if (-not $items[$sel].Installed) { $items[$sel].Selected = -not $items[$sel].Selected } }
+        65 { $items | Where-Object { -not $_.Installed } | ForEach-Object { $_.Selected = $true } }
+        78 { $items | ForEach-Object { $_.Selected = $false } }
         13 {
-            $toInstall = $packages | Where-Object { $_.Selected -and -not $_.Installed }
-            if ($toInstall.Count -gt 0) {
-                Clear-Host
-                Write-Host "`n  CHECKING PACKAGE SOURCES...`n" -ForegroundColor Yellow
+            $queue = @($items | Where-Object { $_.Selected -and -not $_.Installed })
+            if ($queue.Count -gt 0) {
+                for ($j = 0; $j -lt $queue.Count; $j++) {
+                    $p = $queue[$j]
+                    Clear-Host
+                    Write-Host "`n  [$($j + 1)/$($queue.Count)] $($p.Name)" -ForegroundColor Yellow
 
-                # Check for non-msstore packages
-                $warnings = @()
-                foreach ($p in $toInstall) {
-                    $info = winget show --id $p.Id 2>$null | Out-String
-                    if ($info -notmatch "msstore") {
-                        $warnings += $p.Name
-                    }
-                }
-
-                if ($warnings.Count -gt 0) {
-                    Write-Host "  WARNING: The following packages are from community sources" -ForegroundColor Red
-                    Write-Host "  (not verified by Microsoft Store):`n" -ForegroundColor Red
-                    foreach ($w in $warnings) {
-                        Write-Host "    - $w" -ForegroundColor Yellow
-                    }
-                    Write-Host "`n  These packages are downloaded from third-party sites." -ForegroundColor DarkGray
-                    Write-Host "  Proceed with caution.`n" -ForegroundColor DarkGray
-                    Write-Host "  [ENTER] Continue  [Q] Cancel" -ForegroundColor White
-                    $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
-                    if ($key -eq 81) { continue }
-                }
-
-                Clear-Host
-                Write-Host "`n  INSTALLING $($toInstall.Count) PACKAGES`n" -ForegroundColor Yellow
-                foreach ($p in $toInstall) {
-                    Write-Host "  $($p.Name)..." -NoNewline
-                    $output = winget install --id $p.Id --accept-package-agreements --accept-source-agreements -h 2>&1
-                    if ($LASTEXITCODE -eq 0) {
-                        Write-Host " OK" -ForegroundColor Green
-                        $p.Installed = $true
+                    if ($p.Type -eq "winget") {
+                        $cmd = "Write-Host 'Installing $($p.Name)...' -ForegroundColor Yellow; winget install --id $($p.Id) --accept-package-agreements --accept-source-agreements; pause"
+                        Write-Host "  Opening terminal..." -ForegroundColor Cyan
+                        Start-Process powershell -ArgumentList "-Command", $cmd -Wait
                     } else {
-                        Write-Host " FAIL" -ForegroundColor Red
-                        # Extract error message
-                        $errorMsg = ($output | Where-Object { $_ -match "error|failed|not found|no package" }) -join "`n"
-                        if (-not $errorMsg) { $errorMsg = $output | Select-Object -Last 3 | Out-String }
-                        Write-Host "    $($errorMsg.Trim())" -ForegroundColor DarkRed
+                        $cmd = "Write-Host 'Running: $($p.Command)' -ForegroundColor Yellow; $($p.Command); pause"
+                        Write-Host "  Opening terminal..." -ForegroundColor Magenta
+                        Start-Process powershell -ArgumentList "-Command", $cmd -Wait
                     }
                     $p.Selected = $false
+
+                    if ($j -lt $queue.Count - 1) {
+                        Write-Host "`n  Done. Next: $($queue[$j + 1].Name)" -ForegroundColor Green
+                        Write-Host "  [ENTER] Continue  [S] Skip next  [Q] Stop" -ForegroundColor DarkGray
+                        $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
+                        if ($key -eq 81) { break }
+                        if ($key -eq 83) { $queue[$j + 1].Selected = $false; continue }
+                    }
                 }
-                Write-Host "`n  Press any key..." -ForegroundColor DarkGray
+                Write-Host "`n  All done! Press any key to go back..." -ForegroundColor Green
                 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
             }
         }

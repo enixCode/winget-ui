@@ -3,40 +3,40 @@
   "description": "Standard office workstation",
   "packageGroups": {
     "Office Suite": [
-      { "Name": "LibreOffice", "Id": "TheDocumentFoundation.LibreOffice", "Selected": true },
-      { "Name": "Microsoft 365 Apps", "Id": "Microsoft.Office", "Selected": false }
+      { "name": "LibreOffice", "id": "TheDocumentFoundation.LibreOffice", "selected": true },
+      { "name": "Microsoft 365 Apps", "id": "Microsoft.Office", "selected": false }
     ],
     "Browsers": [
-      { "Name": "Firefox", "Id": "Mozilla.Firefox", "Selected": true },
-      { "Name": "Brave", "Id": "Brave.Brave", "Selected": true },
-      { "Name": "Google Chrome", "Id": "Google.Chrome", "Selected": false }
+      { "name": "Firefox", "id": "Mozilla.Firefox", "selected": true },
+      { "name": "Brave", "id": "Brave.Brave", "selected": true },
+      { "name": "Google Chrome", "id": "Google.Chrome", "selected": false }
     ],
     "Communication": [
-      { "Name": "Thunderbird", "Id": "Mozilla.Thunderbird", "Selected": true },
-      { "Name": "Signal", "Id": "OpenWhisperSystems.Signal", "Selected": true },
-      { "Name": "Zoom", "Id": "Zoom.Zoom", "Selected": false },
-      { "Name": "Slack", "Id": "SlackTechnologies.Slack", "Selected": false }
+      { "name": "Thunderbird", "id": "Mozilla.Thunderbird", "selected": true },
+      { "name": "Signal", "id": "OpenWhisperSystems.Signal", "selected": true },
+      { "name": "Zoom", "id": "Zoom.Zoom", "selected": false },
+      { "name": "Slack", "id": "SlackTechnologies.Slack", "selected": false }
     ],
     "PDF & Documents": [
-      { "Name": "Sumatra PDF", "Id": "SumatraPDF.SumatraPDF", "Selected": true },
-      { "Name": "Adobe Acrobat Reader", "Id": "Adobe.Acrobat.Reader.64-bit", "Selected": false }
+      { "name": "Sumatra PDF", "id": "SumatraPDF.SumatraPDF", "selected": true },
+      { "name": "Adobe Acrobat Reader", "id": "Adobe.Acrobat.Reader.64-bit", "selected": false }
     ],
     "Notes": [
-      { "Name": "Obsidian", "Id": "Obsidian.Obsidian", "Selected": true },
-      { "Name": "Joplin", "Id": "Joplin.Joplin", "Selected": false },
-      { "Name": "Notion", "Id": "Notion.Notion", "Selected": false }
+      { "name": "Obsidian", "id": "Obsidian.Obsidian", "selected": true },
+      { "name": "Joplin", "id": "Joplin.Joplin", "selected": false },
+      { "name": "Notion", "id": "Notion.Notion", "selected": false }
     ],
     "Cloud Storage": [
-      { "Name": "Nextcloud Desktop", "Id": "Nextcloud.NextcloudDesktop", "Selected": true },
-      { "Name": "Google Drive", "Id": "Google.GoogleDrive", "Selected": false },
-      { "Name": "Dropbox", "Id": "Dropbox.Dropbox", "Selected": false }
+      { "name": "Nextcloud Desktop", "id": "Nextcloud.NextcloudDesktop", "selected": true },
+      { "name": "Google Drive", "id": "Google.GoogleDrive", "selected": false },
+      { "name": "Dropbox", "id": "Dropbox.Dropbox", "selected": false }
     ],
     "Utilities": [
-      { "Name": "7-Zip", "Id": "7zip.7zip", "Selected": true },
-      { "Name": "Bitwarden", "Id": "Bitwarden.Bitwarden", "Selected": true },
-      { "Name": "Notepad++", "Id": "Notepad++.Notepad++", "Selected": true },
-      { "Name": "PowerToys", "Id": "Microsoft.PowerToys", "Selected": true },
-      { "Name": "VLC", "Id": "VideoLAN.VLC", "Selected": true }
+      { "name": "7-Zip", "id": "7zip.7zip", "selected": true },
+      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "selected": true },
+      { "name": "Notepad++", "id": "Notepad++.Notepad++", "selected": true },
+      { "name": "PowerToys", "id": "Microsoft.PowerToys", "selected": true },
+      { "name": "VLC", "id": "VideoLAN.VLC", "selected": true }
     ]
   }
 }
