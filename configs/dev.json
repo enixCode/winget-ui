@@ -21,7 +21,8 @@
     ],
     "Utilities": [
       { "name": "7-Zip", "id": "7zip.7zip", "selected": true },
-      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "selected": true }
+      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "selected": true },
+      { "name": "VerraCrypt", "id": "IDRIX.VeraCrypt"}
     ],
     "Browsers": [
       { "name": "Brave", "id": "Brave.Brave", "selected": true },
