@@ -16,7 +16,7 @@
     ],
     "AI Tools": [
       { "name": "Claude Desktop", "id": "Anthropic.Claude", "selected": true },
-      { "name": "LM Studio", "id": "LMStudio.LMStudio", "selected": true },
+      { "name": "LM Studio", "id": "ElementLabs.LMStudio", "selected": true },
       { "name": "Ollama", "id": "Ollama.Ollama", "selected": false }
     ],
     "Utilities": [
