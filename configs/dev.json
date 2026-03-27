@@ -8,7 +8,8 @@
       { "name": "VS Code", "id": "Microsoft.VisualStudioCode", "selected": true },
       { "name": "Bun", "id": "Oven-sh.Bun", "selected": true },
       { "name": "Docker Desktop", "id": "Docker.DockerDesktop", "selected": true },
-      { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "selected": true }
+      { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "selected": true },
+      { "name": "Neovim", "id": "Neovim.Neovim", "selected": true }
     ],
     "Rust": [
       { "name": "Rust (rustup)", "id": "Rustlang.Rustup", "selected": false },
