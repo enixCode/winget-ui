@@ -40,6 +40,7 @@
       { "name": "ShareX", "id": "ShareX.ShareX", "selected": true }
     ],
     "Communication": [
+      { "name": "Thunderbird", "id": "Mozilla.Thunderbird", "selected": false },
       { "name": "Discord", "id": "Discord.Discord", "selected": true },
       { "name": "Slack", "id": "SlackTechnologies.Slack", "selected": false }
     ]

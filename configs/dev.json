@@ -9,7 +9,15 @@
       { "name": "Bun", "id": "Oven-sh.Bun", "selected": true },
       { "name": "Docker Desktop", "id": "Docker.DockerDesktop", "selected": true },
       { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "selected": true },
-      { "name": "Neovim", "id": "Neovim.Neovim", "selected": true }
+      { "name": "Neovim", "id": "Neovim.Neovim", "selected": true },
+      { "name": "Zig", "id": "zig.zig", "selected": true },
+      { "name": "fd", "id": "sharkdp.fd", "selected": true },
+      { "name": "fzf", "id": "junegunn.fzf", "selected": true },
+      { "name": "lazygit", "id": "JesseDuffield.lazygit", "selected": true },
+      { "name": "ripgrep", "id": "BurntSushi.ripgrep.MSVC", "selected": true },
+      { "name": "Node.js (LTS)", "id": "OpenJS.NodeJS.LTS", "selected": true },
+      { "name": "pnpm", "id": "pnpm.pnpm", "selected": true },
+      { "name": "WinLibs (GCC)", "id": "BrechtSanders.WinLibs.POSIX.UCRT", "selected": true }
     ],
     "Rust": [
       { "name": "Rust (rustup)", "id": "Rustlang.Rustup", "selected": false },
@@ -23,24 +31,16 @@
     "Utilities": [
       { "name": "7-Zip", "id": "7zip.7zip", "selected": true },
       { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "selected": true },
-      { "name": "VerraCrypt", "id": "IDRIX.VeraCrypt"}
+      { "name": "VeraCrypt", "id": "IDRIX.VeraCrypt", "selected": false }
     ],
     "Browsers": [
       { "name": "Brave", "id": "Brave.Brave", "selected": true },
       { "name": "Firefox", "id": "Mozilla.Firefox", "selected": false }
     ],
     "Communication": [
+      { "name": "Thunderbird", "id": "Mozilla.Thunderbird", "selected": true },
       { "name": "Discord", "id": "Discord.Discord", "selected": true },
       { "name": "Slack", "id": "SlackTechnologies.Slack", "selected": false }
-    ]
-  },
-  "commands": {
-    "npm Global Tools": [
-      { "name": "pnpm", "command": "npm install -g pnpm", "selected": false },
-      { "name": "TypeScript", "command": "npm install -g typescript", "selected": false }
-    ],
-    "Python Tools": [
-      { "name": "Poetry", "command": "pip install poetry", "selected": false }
     ]
   }
 }
